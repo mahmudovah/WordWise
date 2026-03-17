@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ subject.title }}{% endblock %}
+
+{% block content %}
+
+<h4 class="fw-bold mb-4">
+    <i class="fa-solid fa-book text-primary"></i>
+    {{ subject.title }}
+</h4>
+
+<div class="row">
+    {% for word in words %}
+        <div class="col-md-3 mb-4">
+            <div class="card word-card text-center p-3 shadow-sm border-0"
+                 onclick="toggleTranslate(this)">
+
+                <!-- Word -->
+                <h5 class="fw-bold mb-2">
+                    {{ word.word }}
+                </h5>
+
+                <!-- Translation (hidden) -->
+                <div class="translation text-success fw-semibold d-none">
+                    {{ word.translated }}
+                </div>
+
+                <!-- Definition icon -->
+                {% if word.definition %}
+                <div class="mt-2">
+                    <i class="fa-solid fa-lightbulb text-warning"
+                       onclick="showDefinition(event, `{{ word.definition }}`)"
+                       style="cursor:pointer;"></i>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-muted">So‘zlar mavjud emas</p>
+    {% endfor %}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="definitionModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header">
+        <h5 class="modal-title">Definition</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="definitionText"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+function toggleTranslate(card) {
+    const trans = card.querySelector('.translation');
+    trans.classList.toggle('d-none');
+}
+
+function showDefinition(event, text) {
+    event.stopPropagation();
+
+    document.getElementById('definitionText').innerText = text;
+
+    const modal = new bootstrap.Modal(document.getElementById('definitionModal'));
+    modal.show();
+}
+</script>
+
+{% endblock %}

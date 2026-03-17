@@ -64,6 +64,35 @@
     transform: scale(1.1);
 }
 
+/* Subject card */
+.subject-card {
+    transition: 0.2s;
+    border-radius: 16px;
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Word card */
+.word-card {
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.word-card:hover {
+    transform: scale(1.05);
+    background: #f8f9fa;
+}
+
+
 </style>
 
 <body class="bg-light d-flex flex-column min-vh-100">
@@ -135,7 +164,7 @@
             </div>
         {% endfor %}
     </div>
-    
+
     {% block content %}
     {% endblock content %}
 
