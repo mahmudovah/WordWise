@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Kirish{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-4">
+
+                <h3 class="text-center mb-4 fw-bold">
+                    <i class="fa-solid fa-user-lock text-primary"></i>
+                    Tizimga kirish
+                </h3>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <input type="email" name="email" class="form-control" placeholder="email@example.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label class="form-label">Parol</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-lock"></i>
+                            </span>
+                            <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary rounded-3">
+                            <i class="fa-solid fa-right-to-bracket me-1"></i> Kirish
+                        </button>
+                    </div>
+
+                </form>
+
+                <hr>
+
+                <div class="text-center">
+                    <small>
+                        Hisobingiz yo‘qmi?
+                        <a href="{% urls register %}">Ro‘yxatdan o‘tish</a>
+                    </small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
