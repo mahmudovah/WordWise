@@ -112,7 +112,7 @@
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'index' %}">
                                 <i class="fa-solid fa-house"></i> Bosh sahifa
                             </a>
                         </li>
@@ -122,7 +122,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-warning" href="#">
+                            <a class="nav-link text-warning" href="{% url 'logout' %}">
                                 <i class="fa-solid fa-right-from-bracket"></i> Chiqish
                             </a>
                         </li>
