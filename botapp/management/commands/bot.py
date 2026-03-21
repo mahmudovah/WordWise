@@ -3,7 +3,7 @@ from bot.loader import bot
 from bot import handlers
 
 
-class Commands(BaseCommand):
+class Command(BaseCommand):
     help = 'Telegram-bot'
 
     def handle(self, *args, **options):

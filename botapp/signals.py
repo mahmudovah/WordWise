@@ -8,8 +8,10 @@ from bot.loader import bot
 def notify_about_new_botuser(sender, created, instance, **kwargs):
     if created:
         bot.send_message(
-            "-1003813831969"
-            f'Yangi user yaratildi!\n'\
+            chat_id="-1003875715863",
+            #"-1003813831969"
+            text=f'Yangi user yaratildi!\n'\
             f'Ism: {instance.full_name}\n'\
-            f'Username: {instance.username}\n'
+            f'Username: {instance.username}'
         )
+    pass
