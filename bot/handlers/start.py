@@ -17,7 +17,12 @@ def start_handler(message: types.Message):
     words_count = Word.objects.count()
     subject_count = Subject.objects.count()
 
-    text = f'Bot sizga sozlarni yod olishga yordam beradi\n'\
+    text = 'Bot sizga sozlarni yod olishga yordam beradi\n'\
+    '\n'\
+    'Test ishlash uchun /quiz ni yozing\n'\
+    '\n'\
+    'Yangi so`z qo`shish uchun /newword ni yozing\n'\
+    '\n'\
     f'Mavjud so`zlar soni : {words_count}\n'\
     f'Mavjud bo`limlar soni : {subject_count}'
 

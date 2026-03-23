@@ -1,6 +1,7 @@
 from django.db import models
 from main.models import User
 from django.utils.text import slugify
+from botapp.models import BotUser
 
 class Subject(models.Model):
     title = models.CharField(max_length=255)
@@ -14,7 +15,6 @@ class Subject(models.Model):
     
 
 class Word(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     word = models.CharField(max_length=255)
     slug = models.SlugField()
