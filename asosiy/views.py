@@ -41,8 +41,7 @@ def add_word(request: HttpRequest, subject_id):
             subject=subject,
             word=word,
             translated=translated,
-            definition=definition,
-            author=user
+            definition=definition
         )
         words = Word.objects.all()
 
