@@ -45,7 +45,7 @@ def add_word(request: HttpRequest, subject_id):
         )
         words = Word.objects.all()
 
-        return redirect('subject_detail')
+        return redirect('subject_detail', subject.id)
 
     return render(request, 'add_word.html')
 
