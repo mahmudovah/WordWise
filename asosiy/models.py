@@ -30,4 +30,4 @@ class Word(models.Model):
         return super().save(*args,**kwargs)
     
     def __str__(self):
-        return self.word + " - " + self.translated + " @" + self.author.first_name
+        return self.word + " - " + self.translated
