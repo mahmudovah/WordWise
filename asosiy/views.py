@@ -44,14 +44,16 @@ def add_word(request: HttpRequest, subject_id):
             definition=definition,
             author=user
         )
-        return redirect('subject_detail', subject_id)
+        words = Word.objects.all()
+
+        return redirect('subject_detail')
 
     return render(request, 'add_word.html')
 
 
-def add_subject(request: HttpRequest):
-    user = request.user
-    if request.method == 'POST':
-        if not user.is_authenticated:
-            return redirect('register')
-        title = request.POST
+# def add_subject(request: HttpRequest):
+#     user = request.user
+#     if request.method == 'POST':
+#         if not user.is_authenticated:
+#             return redirect('register')
+#         title = request.POST
